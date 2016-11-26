@@ -2,4 +2,6 @@ body {
   margin: 0;
 }
 
+@import 'common/global/fonts';
+@import 'common/global/mixins';
 @import 'common/greating';
