@@ -1,0 +1,13 @@
+-
+	var social = {
+		"Вконтакте":"vk",
+		"GitHub":"github",
+		"Linkedin":"in"
+	}
+
+each suff, title in social
+	li.social__item= item		
+		a(class='social__link' href='#' target='_blank')=title
+			//- svg(class=`social__icon social__icon--${suff}`)
+				//- use(xlink:href=`assets/img/sprite.svg#${suff}`)
+	

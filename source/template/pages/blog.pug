@@ -1,0 +1,17 @@
+extends ../_template
+
+block variables
+	-var title = 'Блог'
+block figcaption
+	h1.title Блог
+	p.developer__caption.developer__caption--regular Статьи, которые я написал
+
+block content
+	section.blog
+		.container
+			.blog__sidebar
+				include ../common/_sidebar
+			.blog__articles
+				each item, i in articlesList
+					+articles(item, i)
+

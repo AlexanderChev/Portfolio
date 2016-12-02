@@ -1,7 +1,60 @@
 extends ../_template
 
 block variables
-  - var title = 'Home page'
+	-var title = 'Мои работы'
 
 block content
-  include ../common/_greating
+	section.works
+		h1.title Мои работы
+		.slider
+
+			.slider__content
+				h3.title.title--sub Сайт школы онлайн Образования
+				p.slider__description Html, css, js
+				a(href='#' class="slider__btn") Посмотреть сайт
+				
+			.slider__current-slide
+				ul.slider__works-list
+					-for(var i = 0; i < 4; i++)
+						li.slider__works-item
+							img(src=`assets/img/work-${i+1}`)
+
+			.slider__controls
+				.slider__control-prev
+					.slider__thumbnails
+						.slider__thumbnail-next
+						.slider__thumbnail-current
+					svg.down
+				.slider__control-next
+					.slider__thumbnails
+						.slider__thumbnail-next
+						.slider__thumbnail-current
+					svg.up
+
+	section.reviews
+		.container
+			h2.title Что обо мне говорят
+			ul.reviews__list
+				-for(var i = 0; i < 2; i++)
+					li.reviews__item
+						article.review
+							.review__img-wrap
+								img(src=`assest/img/reviewer-${i}` alt='')
+							blockquote.review__text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+							.review__author-wrap
+								cite.review__author-name Ковальчук Дмитрий 
+								span.review__author-caption основатель Loftschool
+
+								
+			section.reviews__feedback
+				.feedback
+					h3.title.title--sub Связаться со мной
+					form.feedback__form
+						.feedback__input-wrapp
+							input(type='text' name='name' class='feedback__input-field' placeholder='Имя' required)
+							input(type='email' name='email' class='feedback__input-field' placeholder='Email' required)
+							textarea(type='text' name='message' class='feedback__textarea-field' placeholder='Ваше сообщение')
+						input(type='submit' value='Отправить' class='feedback__btn feedback__btn--submit')
+						input(type='reset' value='Очистить' class='feedback__btn feedback__btn--reset')
+
+			a.arrow-link.arrow-link--top

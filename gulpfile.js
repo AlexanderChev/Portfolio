@@ -12,7 +12,8 @@ global.$ = {
   gulp: require('gulp'),
   rimraf: require('rimraf'),
   browserSync: require('browser-sync').create(),
-  gp: require('gulp-load-plugins')()
+  gp: require('gulp-load-plugins')(),
+  fs: require('fs')
 };
 
 $.path.task.forEach(function(taskPath) {

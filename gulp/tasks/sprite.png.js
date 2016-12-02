@@ -8,9 +8,9 @@ module.exports = function() {
         .pipe($.gp.spritesmith({
           imgName: 'sprite.png',
           cssName: 'sprite.scss',
-          cssFormat: 'scss',
-          padding: 5,
-          imgPath: './assets/img/sprite.png',
+          cssFormat: 'css',
+          padding: 30,
+          imgPath: '../img/sprite.png',
           cssVarMap: function (sprite) {
             sprite.name = 'icon-' + sprite.name;
           },

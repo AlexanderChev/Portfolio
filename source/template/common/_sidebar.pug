@@ -1,0 +1,7 @@
+aside.sidebar
+	a.sidebar__toggle
+	nav.sidebar__nav
+		ul.sidebar__list
+			each title, href in sidebarNav
+				li.sidebar__item
+					a(href=`#article-${href+1}`)= title
