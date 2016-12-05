@@ -1,0 +1,33 @@
+.footer {
+	background-color: $bg-footer;
+
+	&__top,
+	&__bottom {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 20px 30px;
+	}
+
+	&__bottom {
+		position: relative;
+		font-family: $r-l;
+		color: rgba(#fff, 0.5);
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			width: 110%;
+			height: 1px;
+			background-color: #44555a;
+		}
+	}
+
+	&__text {
+		max-width: 530px;
+		margin-right: 20px;
+	}
+}

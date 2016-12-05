@@ -1,0 +1,30 @@
+.developer {
+	text-align: center;
+	color: #ffffff;
+}
+
+.developer__img-wrap {
+	position: relative;
+	width: 140px;
+	height: 140px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    background-color: #ffffff;
+    border-radius: 50%;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.developer__name {
+	@include font(35, $r-m);
+	line-height: 1;
+}
+
+.developer__caption {
+	font-family: $r-l;
+}
+
+.developer--auth {
+	padding: 0 10px;
+	color: $color-text;
+}

@@ -1,0 +1,52 @@
+.title {
+	position: relative;
+	margin: 0;
+	padding: 60px 0;
+	@include font(63, $b-r-r);
+	text-align: center;
+	color: $color-title;
+
+	&__text {
+		position: relative;
+		display: inline-block;
+		padding: 0 43px;
+		@include lines;
+	}
+
+	&--sub {
+		padding: 0;	
+		font-size: 2.19em;
+	}
+
+	&--works {
+		background-color: $bg-title;
+	}
+
+	&--developer-info {
+		width: 360px;
+		margin-bottom: 60px;
+		padding: 0;
+	}
+
+	&__works-bg {
+		@include svg-bg(42.08%, 165px);
+	}
+
+	&__about-bg {
+		@include svg-bg(41.67%, 175px);
+	}
+
+	&__developer-info {
+		@include svg-bg(354px, 117px);
+	}
+
+	&--blog {
+		color: #ffffff;
+		padding: 0;
+	}
+
+	&__blog-bg {
+		@include svg-bg(35%, 200px);
+	}
+}
+

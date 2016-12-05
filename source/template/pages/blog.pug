@@ -1,17 +1,27 @@
 extends ../_template
 
+block blog
+
 block variables
 	-var title = 'Блог'
+
 block figcaption
-	h1.title Блог
+	h1.title.title--blog
+		span.title__text Блог
+		svg(class='title__blog-bg')
+			use(xlink:href='assets/img/sprite.svg#blog_header')
 	p.developer__caption.developer__caption--regular Статьи, которые я написал
 
 block content
 	section.blog
 		.container
-			.blog__sidebar
-				include ../common/_sidebar
+			include ../common/_sidebar
 			.blog__articles
 				each item, i in articlesList
-					+articles(item, i)
+						article(class='article' id=`#article-${i+1}`)
+							h2.article__title= item.title
+							time.article__datetime= item.date
+							.article__content
+								each par in item.text
+									p= par
 

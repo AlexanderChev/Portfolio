@@ -1,0 +1,52 @@
+.header {
+	position: relative;
+	min-height: 650px;
+	background-color: #84adad;
+}
+
+.header__top {
+	@include clearfix;
+	margin-bottom: 70px;
+	padding: 25px 30px;
+}
+
+.header__left {
+	float: left;
+}
+
+.header__right {
+	float: right;
+}
+
+.header__middle {
+	position: relative;
+	height: 100%;
+}
+
+.header__portfolio-bg {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 0;
+	width: 97.92%;
+	height: 313px;
+	transform: translate(-50%, -50%);
+	opacity: 0.06;
+}
+
+.header__triangle {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	fill: $bg-title;
+
+	&-left {
+		fill: #efeee9;
+	}
+
+	&-right {
+		fill: #eeebdf;
+	}
+}

@@ -1,0 +1,29 @@
+.arrow-link {
+	position: absolute;
+	bottom: 85px;
+	left: 50%;
+	z-index: 100;
+	transform: translateX(-50%);
+	cursor: pointer;
+
+	&--up {
+		bottom: 70px;
+	}
+
+	&__icon-down,
+	&__icon-up {
+		@include svg(26px, 18px, #ffffff);
+		opacity: 0.7;
+		transition: 0.3s;
+	}
+
+	&:hover &__icon-down  {
+		transform: translateY(5px);
+		opacity: 1;
+	}
+
+	&:hover &__icon-up {
+		transform: translateY(-5px);
+		opacity: 1;
+	}
+}

@@ -1,0 +1,23 @@
+.article {
+	text-align: left;
+    padding-bottom: 70px;
+    margin-bottom: 70px;
+    border-bottom: 4px solid #f1f1f2;
+	color: $color-text;
+
+    &:last-child {
+    	border: none;
+    }
+
+    &__title {
+    	margin: 0;
+    	margin-bottom: 20px;
+    	@include font(35, $b-r-r);
+    }
+
+    &__datetime {
+    	display: block;
+    	margin-bottom: 25px;
+    	color: $green;
+    }
+}

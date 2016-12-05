@@ -1,0 +1,83 @@
+.auth {
+	position: relative;
+  	min-width: 100%;
+    min-height: 100%;
+	background-color: #5c788d;
+
+	&__btn {
+		position: absolute;
+		top: 25px;
+		right: 20px;
+		padding: 15px 30px;
+		font-family: $r-m;
+		color: #ffffff;
+		background-color: transparent;
+		border: 1px solid #ffffff;
+		border-radius: 5px;
+
+		&:hover {
+			background-color: #FFF;
+			color: $green; 
+		}
+	}
+
+	&-window {
+		position: absolute;
+		width: 380px;
+		top: 50%;
+		left:50%;
+		padding-top: 40px;
+		background-color: #ffffff;
+		border-radius: 5px;
+		opacity: 0.85;
+		transform: translate(-50%, -50%);
+		overflow: hidden;
+	}
+
+	&-window__developer {
+		margin-bottom: 30px;
+	}
+
+	&-window__social {
+		margin-bottom: 30px;
+	}
+
+	&-window__signin {
+		display: none;
+	}
+}
+
+.auth-window__list {
+	display: flex;
+	width: 100%;
+}
+
+.auth-window__item {
+	flex-grow: 1;
+	border-right: 2px solid #82cfc9;
+
+	&:last-of-type {
+		border: none;
+	}
+}
+
+.auth-window__link {
+	display: block;
+	padding: 17px 0;
+	color: #ffffff;
+	text-align: center;
+	background-color: rgba($green, 0.85);
+
+	&:hover {
+		background-color: rgba(#0b8f86, 0.85);
+	}
+}
+
+.auth__footer {
+	position: absolute;
+	bottom: 30px;
+	width: 100%;
+	font-family: $r-l;
+	color: #ffffff;
+	text-align: center;
+}

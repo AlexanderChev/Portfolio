@@ -5,42 +5,59 @@ block variables
 
 block content
 	section.works
-		h1.title Мои работы
+		h1.title.title--works
+			span.title__text Мои работы
+			svg(class='title__works-bg')
+				use(xlink:href='assets/img/sprite.svg#works_header')
 		.slider
 
 			.slider__content
-				h3.title.title--sub Сайт школы онлайн Образования
-				p.slider__description Html, css, js
-				a(href='#' class="slider__btn") Посмотреть сайт
+				ul.slider__content-list
+					-var list = ['Сайт школы онлайн Образования', 'Работа2', 'Работа3']
+					each item, i  in list
+						li(class='slider__content-item' + ((i == 0)? ' slider__content-item--acitve': ''))
+							h3.title.title--sub
+								span.title__text= item
+							p.slider__description Html, css, js
+							a(href='#' class='btn btn--slider') Посмотреть сайт
+								svg(class='btn__icon-link')
+									use(xlink:href='assets/img/sprite.svg#link')
 				
 			.slider__current-slide
 				ul.slider__works-list
 					-for(var i = 0; i < 4; i++)
-						li.slider__works-item
-							img(src=`assets/img/work-${i+1}`)
+						li(class='slider__works-item' + ((i == 0) ? ' slider__works-item--acitve': ''))
+							img(src=`assets/img/work/work-${i+1}.png` class='slider__works-img')
 
 			.slider__controls
-				.slider__control-prev
+				.slider__control.slider__control-prev
+					svg(class='slider__icon-down')
+						use(xlink:href='assets/img/sprite.svg#portf_arrow_down')
 					.slider__thumbnails
 						.slider__thumbnail-next
 						.slider__thumbnail-current
-					svg.down
-				.slider__control-next
+				.slider__control.slider__control-next
+					svg(class='slider__icon-up')
+						use(xlink:href='assets/img/sprite.svg#portf_arrow_up')
 					.slider__thumbnails
 						.slider__thumbnail-next
 						.slider__thumbnail-current
-					svg.up
 
 	section.reviews
-		.container
-			h2.title Что обо мне говорят
+			h2.title 
+				span.title__text Что обо мне<br> говорят
+				svg(class='title__about-bg')
+					use(xlink:href='assets/img/sprite.svg#about_header')
+					
 			ul.reviews__list
 				-for(var i = 0; i < 2; i++)
 					li.reviews__item
+						svg(class='reviews__icon-quote')
+							use(xlink:href='assets/img/sprite.svg#quote')
 						article.review
-							.review__img-wrap
-								img(src=`assest/img/reviewer-${i}` alt='')
 							blockquote.review__text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+							.review__img-wrap
+								img(src=`assets/img/work/reviewer-${i+1}.png` alt='')
 							.review__author-wrap
 								cite.review__author-name Ковальчук Дмитрий 
 								span.review__author-caption основатель Loftschool
@@ -48,13 +65,17 @@ block content
 								
 			section.reviews__feedback
 				.feedback
-					h3.title.title--sub Связаться со мной
+					.feedback__blur
+					h3.title.title--sub 
+						span.title__text Связаться со мной
 					form.feedback__form
-						.feedback__input-wrapp
+						.feedback__input-wrap
 							input(type='text' name='name' class='feedback__input-field' placeholder='Имя' required)
 							input(type='email' name='email' class='feedback__input-field' placeholder='Email' required)
 							textarea(type='text' name='message' class='feedback__textarea-field' placeholder='Ваше сообщение')
 						input(type='submit' value='Отправить' class='feedback__btn feedback__btn--submit')
 						input(type='reset' value='Очистить' class='feedback__btn feedback__btn--reset')
 
-			a.arrow-link.arrow-link--top
+			a.arrow-link.arrow-link--up
+				svg(class='arrow-link__icon-up')
+					use(xlink:href='assets/img/sprite.svg#portf_arrow_up')

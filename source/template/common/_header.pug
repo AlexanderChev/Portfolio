@@ -5,12 +5,20 @@ header.header
 				include _social
 		.header__right
 			include _menu
-		.header__middle
-			.developer
-				.developer__img-wrap
-					img(class='developer__img' src="assets/img/avatar.jpg" alt='')
-				block figcaption
-					span.developer__name Владимир Астахов
-					p.developer__caption Личный сайт веб разработчика
-		a.arrow-link.arrow-link--down
-		
+			a.toggle
+				span.toggle__hamburger
+	.header__middle
+		.developer
+			include _developer
+		block blog
+			svg(class='header__portfolio-bg')
+				use(xlink:href='assets/img/sprite.svg#portfolio_header')
+									
+	a.arrow-link.arrow-link--down
+		svg(class='arrow-link__icon-down')
+			use(xlink:href='assets/img/sprite.svg#arrow_down')
+
+	<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="header__triangle">
+		block triangle
+			<polygon points="0,0   0,86   500.8,86   500.8,75.5"></polygon>
+			<polygon points="1000,0   1000,86   500,86   500,75.5"></polygon></svg>	

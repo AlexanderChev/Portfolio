@@ -1,0 +1,53 @@
+extends ../_empty
+
+block variables
+	-var title = 'Авторизация'
+
+block content
+		.auth
+			a(href='#' class='auth__btn') Авторизоваться
+			.auth-window
+				.auth-window__hello
+					.auth-window__content
+						.auth-window__developer
+							.developer.developer--auth
+								include ../common/_developer
+						.auth-window__social
+							ul.social.social--auth
+								include ../common/_social
+					.auth-window__nav
+						+nav("auth-window", welcomList)
+
+				.auth-window__signin
+					form(method='POST' class='auth-window__form')
+						.auth-window__content
+							h2.title.title--sub Авторизуйтесь
+
+							label.auth-window__label Логин
+								input(type='text' name='login' class='auth-window__input' required placeholder='Логин')
+								div.auth-window__icon-wrap
+
+							label.auth-window__label Пароль
+								input(type='password' name='password' class='auth-window__input' required placeholder='Пароль')
+								div.auth-window__icon-wrap
+
+							label.auth-window__label-checkbox Я человек
+								input(type='checkbox' name='captcha' id='captcha-human' class='auth-window__input-checkbox' required)
+
+							div.auth-window__question Вы точно не робот?
+							label.auth-window__label-radio
+								input(type='radio' name='captcha-radio' id='captcha-yes' class='auth-window__input-radio' required)
+								span.auth-window__answer Да
+
+							label.auth-window__label-radio
+								input(type='radio' name='captcha-radio' id='captcha-no' class='auth-window__input-radio' required)
+								span.auth-window__answer Не уверен
+
+						.auth-window__nav
+							ul.auth-window__list
+								li.auth-window__item
+									a(href='#' class='auth-window__link') На главную
+								li.auth-window__item
+									input(type='submit' value='Войти' class='auth-window__link')
+
+			footer.auth__footer © Владимир Астахов | создано с любовью в LoftSchool | 2016

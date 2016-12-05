@@ -1,0 +1,12 @@
+.navigation {
+
+	&__item {
+		display: inline-block;
+		margin-right: 35px;
+	}
+
+	&__link {
+		font-family: $r-m;
+		color: #ffffff;
+	}
+}

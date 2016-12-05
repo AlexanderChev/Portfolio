@@ -4,4 +4,4 @@ aside.sidebar
 		ul.sidebar__list
 			each title, href in sidebarNav
 				li.sidebar__item
-					a(href=`#article-${href+1}`)= title
+					a(class='sidebar__link' href=`#article-${href+1}`)= title

@@ -1,0 +1,32 @@
+.sidebar {
+	position: relative;
+	float: left;
+	width: 30%;
+	text-align: right;
+
+	&__nav {
+		position: static;
+	}
+
+	&__link {
+		display: block;
+	    padding: 17px 20px;
+	    color: $color-text;
+	    transition: 0.3s;
+
+	    &:hover {
+	    	color: $green;
+	    }
+
+	    &--active {
+	    	border-right: 3px solid $green;
+	    }
+	}
+}
+
+.sidebar__nav--fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 30%;
+}

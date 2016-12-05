@@ -1,5 +1,5 @@
-body {
-	margin: 0;
-}
-
+@import 'common/global/_variables';
+@import 'common/global/_mixins';
+@import 'common/global/_base';
+@import 'common/global/_fonts';
 @import 'common/**/*.scss';

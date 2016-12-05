@@ -5,9 +5,17 @@
 		"Linkedin":"in"
 	}
 
-each suff, title in social
-	li.social__item= item		
+	var social_round = {
+		"Вконтакте":"vk_round",
+		"GitHub":"github_round",
+		"Linkedin":"in_round"
+	}
+
+block round
+
+each suff, title in ((circle == true) ? social_round : social)
+	li.social__item= item
 		a(class='social__link' href='#' target='_blank')=title
-			//- svg(class=`social__icon social__icon--${suff}`)
-				//- use(xlink:href=`assets/img/sprite.svg#${suff}`)
+			svg(class=`social__icon social__icon--${suff}`)
+				use(xlink:href=`assets/img/sprite.svg#${suff}`)
 	

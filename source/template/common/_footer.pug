@@ -1,11 +1,14 @@
 footer.footer
-	.footer__top
-		.footer__navigation
-			nav.navigation
-				+nav("navigation", navList)
-		.footer__social
-			ul.social.social--circle
-				include _social
-	.footer__bottom
-		p.footer__text Я веб-разработчик из Новосибирска, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. 
-		p.footer__copyright © Владимир Астахов | создано с любовью в LoftSchool | 2016
+
+		.footer__top
+			.footer__navigation
+				nav.navigation
+					+nav("navigation", navList)
+			.footer__social
+				ul.social.social--circle
+					block round
+						-var circle = true
+						include _social
+		.footer__bottom
+			p.footer__text Я веб-разработчик из Ярославля, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. 
+			p.footer__copyright © Александр Егоричев | создано с любовью в LoftSchool | 2016

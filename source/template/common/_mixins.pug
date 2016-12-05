@@ -3,11 +3,3 @@ mixin nav(className, items)
 		each href, title in items
 			li(class=`${className}__item`)
 				a(class=`${className}__link` href=`${href}.html`)= title
-
-mixin articles(item, i)
-	article(class='article' id=`#article-${i+1}`)
-		h2.article__title= item.title
-		time.article__datetime= item.date
-		.article__content
-			each par in item.text
-				p= par

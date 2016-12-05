@@ -1,0 +1,23 @@
+.skills {
+	padding-left: 40px;
+	padding-right: 20px;
+
+	&__intro {
+		color: $color-text;
+		line-height: 1.5;
+	}
+
+	&__group-title {
+		@include font(28, $r-m);
+		color: $color-text;
+	}
+
+	&__list {
+		display: flex;
+	}
+
+	&__item {
+		margin-right: 35px;
+	}
+}
+

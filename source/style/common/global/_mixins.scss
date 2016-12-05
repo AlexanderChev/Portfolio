@@ -1,0 +1,68 @@
+%container {
+	width: 95%;
+	margin: 0 auto;
+}
+
+%clearfix {
+	&:after, &:before {
+		content: "";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+@mixin clearfix {
+	&:after {
+    	content: '';
+    	display: table;
+    	clear: both;
+	}
+}
+
+@mixin svg($width, $height, $fill) {
+	width: $width;
+	height: $height;
+	fill: $fill;
+}
+
+@mixin font($size,$family) {
+    font-size: #{$size/16}em;
+    font-family: #{$family}, 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+}
+
+@mixin lines {
+	&:after,
+	&:before {
+    	content: "";
+    	position: absolute;
+		top: .5em;
+		right: 0;
+    	width: 22px;
+		height: 5px;
+    	background-color: #d0d2d2;
+    	opacity: .8;
+	}
+
+	&:before {
+		left: 0px;
+	}	
+}
+
+@mixin svg-bg ($width, $height) {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 0;
+	width: $width;
+	height: $height;
+	transform: translate(-50%, -50%);
+	opacity: 0.06;
+}
+
+@mixin i-b($align) {
+	display: inline-block;
+	vertical-align: $align;
+}
