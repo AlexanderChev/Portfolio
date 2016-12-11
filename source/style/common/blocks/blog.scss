@@ -5,7 +5,12 @@
 
 .blog__articles {
 	float: left;
+	max-width: 980px;
 	width: 60%;
 	padding-left: 60px;
-	max-width: 980px;
+
+	@include  tablet {
+		width: 98%;
+		padding-left: 15px;
+	}
 }

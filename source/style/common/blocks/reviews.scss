@@ -4,23 +4,33 @@
 	background-color: #ffffff;
 	background-image: url(../img/background/bg-reviews.png);
 	background-repeat: no-repeat;
-	background-size: cover;
 	background-position: center bottom;
+	background-size: cover;
 }
 
 .reviews__list {
 	display: flex;
-	justify-content: space-between;
-	width: 75.33%;
+	justify-content: center;
+	@include container;
 	margin: 0 auto;
 	margin-bottom: 70px;
 	color: $color-text;
+
+	@include tablet {
+		flex-direction: column;
+	}
 }
 
 .reviews__item {
 	position: relative;
-	width: 47.7%;
+	width: 383px;
 	padding-top: 60px;
+	padding-left: 10px;
+
+	@include tablet {
+		width: 100%;
+		margin-bottom: 25px;
+	}
 }
 
 .reviews__icon-quote {
@@ -28,16 +38,21 @@
 	top: 0;
 	left: 0;
 	@include svg(35px, 30px, #d4d7d8);
+
+	@include tablet {
+		left: 50%;
+		transform: translateX(-50%);
+	}
 }
 
 .review__text {
 	margin: 0;
 	margin-bottom: 30px;
+	line-height: 1.625;
 }
 
 .review__img-wrap {
-	display: inline-block;
-	vertical-align: middle;
+	@include i-b(middle);
 	width: 77px;
 	height: 77px;
 	margin-right: 25px;
@@ -46,8 +61,7 @@
 }
 
 .review__author-wrap {
-	display: inline-block;
-	vertical-align: middle;
+	@include i-b(middle);
 	color: $green;
 }
 

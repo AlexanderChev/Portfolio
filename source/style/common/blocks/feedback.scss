@@ -2,11 +2,15 @@
 	position: relative;
 	width: 380px;
 	margin: 0 auto;
-	padding-top: 20px;
+	padding-top: 30px;
 	border-radius: 5px;
 	background-color: rgba(#fff, 0.5);
 	overflow: hidden;
 	z-index: 1;
+
+	@include  mobile {
+		width: 300px;
+	}
 }
 
 .feedback__blur {
@@ -16,12 +20,12 @@
     bottom: 0;
     left: 0;
     z-index: 0;
-    background-position: center 74%;
     filter: blur(5px);
-    background-color: #fffff;
-    background-image: url(../img/background/bg-reviews.png);
-    background-repeat: no-repeat;
-    background-size: 1800px;
+	background-color: #fffff;
+	background-image: url(../img/background/bg-reviews.png);
+	background-repeat: no-repeat;
+	background-position: center 74%;
+	background-size: 1800px;
 }
 
 .feedback__input-wrap {
@@ -36,7 +40,7 @@
 .feedback__textarea-field {
     display: block;
     width: 100%;
-    margin: 20px 0;
+    margin-bottom: 20px;
     padding: 15px;
     border: 0;
 	border-radius: 5px;
@@ -44,8 +48,8 @@
 }
 
 .feedback__textarea-field {
-	min-height: 140px;
-	max-height: 140px;
+	height: 140px;
+	resize: none;
 }
 
 .feedback__btn {
@@ -58,14 +62,11 @@
 	color: #ffffff;
 	background-color: $green;
 	border: none;
+	transition: background-color 0.4s;
 
 	&:hover {
-		background-color: #268c8c;
+		background-color: $hover-green;
 	}
-}
-
-.feedback__btn--submit {
-	border-rigth: 2px solid #82cfc9;
 }
 
 .feedback__btn--reset {

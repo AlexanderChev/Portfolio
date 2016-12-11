@@ -4,19 +4,22 @@
 	background: gray;
 
 	&__window {
-		position: absolute;
-		width: 380px;
-		top: 50%;
-		left:50%;
-		padding: 35px 40px;
-		background-color: #ffffff;
-		border-radius: 5px;
-		opacity: 0.85;
-		transform: translate(-50%, -50%);
-	}
+		width: 100%;
+		padding: 30px 10px;
+		background: #ffffff;
 
-	&__list {
-		margin-top: 30px;
+		@include desktop {
+			position: absolute;
+			top: 30%;
+			left: 50%;
+			width: 380px;
+			padding: 35px 40px;
+			border-radius: 5px;
+			transform: translate(-50%, -50%);
+			opacity: 0.85;
+		}
+
+
 	}
 
 	&__item {

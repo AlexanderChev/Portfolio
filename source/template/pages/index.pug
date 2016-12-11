@@ -1,33 +1,37 @@
 extends ../_template
-
+block triangle
+	<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="header__triangle header__triangle--gray">
+		<polygon points="0,0   0,86   500.8,86   500.8,75.5"></polygon>
+		<polygon points="1000,0   1000,86   500,86   500,75.5"></polygon></svg>
 block variables
 	-var title = 'Мои работы'
+	-var footerMod = ''
 
 block content
 	section.works
 		h1.title.title--works
 			span.title__text Мои работы
-			svg(class='title__works-bg')
+			svg(class='title__bg')
 				use(xlink:href='assets/img/sprite.svg#works_header')
+
 		.slider
+			.slider__display
+				ul.slider__works-list
+					-for(var i = 0; i < 4; i++)
+						li(class='slider__works-item' + ((i == 0) ? ' slider__works-item--acitve' : ''))
+							img(src=`assets/img/work/work-${i+1}.png` class='slider__works-img')
 
 			.slider__content
 				ul.slider__content-list
 					-var list = ['Сайт школы онлайн Образования', 'Работа2', 'Работа3']
 					each item, i  in list
 						li(class='slider__content-item' + ((i == 0)? ' slider__content-item--acitve': ''))
-							h3.title.title--sub
+							h3.title.title--sub.title--slider
 								span.title__text= item
-							p.slider__description Html, css, js
-							a(href='#' class='btn btn--slider') Посмотреть сайт
-								svg(class='btn__icon-link')
+							p.slider__skills Html, css, js
+							a(href='#' class='slider__btn') Посмотреть сайт
+								svg(class='slider__btn-icon')
 									use(xlink:href='assets/img/sprite.svg#link')
-				
-			.slider__current-slide
-				ul.slider__works-list
-					-for(var i = 0; i < 4; i++)
-						li(class='slider__works-item' + ((i == 0) ? ' slider__works-item--acitve': ''))
-							img(src=`assets/img/work/work-${i+1}.png` class='slider__works-img')
 
 			.slider__controls
 				.slider__control.slider__control-prev
@@ -43,12 +47,13 @@ block content
 						.slider__thumbnail-next
 						.slider__thumbnail-current
 
+
 	section.reviews
-			h2.title 
+			h2.title
 				span.title__text Что обо мне<br> говорят
-				svg(class='title__about-bg')
+				svg(class='title__bg')
 					use(xlink:href='assets/img/sprite.svg#about_header')
-					
+
 			ul.reviews__list
 				-for(var i = 0; i < 2; i++)
 					li.reviews__item
@@ -59,14 +64,14 @@ block content
 							.review__img-wrap
 								img(src=`assets/img/work/reviewer-${i+1}.png` alt='')
 							.review__author-wrap
-								cite.review__author-name Ковальчук Дмитрий 
+								cite.review__author-name Ковальчук Дмитрий
 								span.review__author-caption основатель Loftschool
 
-								
+
 			section.reviews__feedback
 				.feedback
 					.feedback__blur
-					h3.title.title--sub 
+					h3.title.title--sub
 						span.title__text Связаться со мной
 					form.feedback__form
 						.feedback__input-wrap

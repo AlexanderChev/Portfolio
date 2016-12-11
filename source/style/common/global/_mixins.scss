@@ -1,6 +1,32 @@
-%container {
+@mixin desktop {
+	@media (min-width: 768px) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (max-width: 767px) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: 480px) {
+		@content;
+	}
+}
+
+@mixin container {
 	width: 95%;
 	margin: 0 auto;
+
+	@include mobile {
+		width: 93%;
+	}
+
+	@include  tablet {
+		width: 94%;
+	}
 }
 
 %clearfix {
@@ -29,11 +55,11 @@
 }
 
 @mixin font($size,$family) {
-    font-size: #{$size/16}em;
+    font-size: #{$size}px;
     font-family: #{$family}, 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
 }
 
-@mixin lines {
+@mixin lines($bg-color) {
 	&:after,
 	&:before {
     	content: "";
@@ -42,7 +68,7 @@
 		right: 0;
     	width: 22px;
 		height: 5px;
-    	background-color: #d0d2d2;
+    	background-color: $bg-color;
     	opacity: .8;
 	}
 
@@ -51,15 +77,24 @@
 	}	
 }
 
-@mixin svg-bg ($width, $height) {
+%block-center {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	z-index: 0;
-	width: $width;
-	height: $height;
 	transform: translate(-50%, -50%);
+}
+
+%svg-bg {
+	@extend %block-center;
+	z-index: 0;
+	width: 100%;
+	height: auto;
+	fill: #000;
 	opacity: 0.06;
+
+	@include tablet {
+		width: 75%;
+	}
 }
 
 @mixin i-b($align) {

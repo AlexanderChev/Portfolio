@@ -2,12 +2,17 @@
 	position: relative;
 	min-height: 650px;
 	background-color: #84adad;
+	background-image: url("../img/background/bg-header-desktop.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
 }
 
 .header__top {
-	@include clearfix;
+	@extend %clearfix;
+	@include container;
 	margin-bottom: 70px;
-	padding: 25px 30px;
+	padding: 25px 0px;
 }
 
 .header__left {
@@ -24,14 +29,12 @@
 }
 
 .header__portfolio-bg {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	z-index: 0;
-	width: 97.92%;
-	height: 313px;
-	transform: translate(-50%, -50%);
-	opacity: 0.06;
+	@extend %svg-bg;
+	fill: #ffffff !important;
+
+	@include  tablet {
+		display: none;
+	}
 }
 
 .header__triangle {
@@ -40,7 +43,11 @@
 	left: 0;
 	right: 0;
 	width: 100%;
-	fill: $bg-title;
+	fill: #ffffff;
+
+	&--gray {
+		fill: #faf8f0;
+	}
 
 	&-left {
 		fill: #efeee9;
@@ -48,5 +55,9 @@
 
 	&-right {
 		fill: #eeebdf;
+
+		@include  tablet {
+			fill: #efeee9;
+		}
 	}
 }

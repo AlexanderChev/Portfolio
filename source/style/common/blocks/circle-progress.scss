@@ -24,11 +24,8 @@
 
 
 .circle-progress__name {
-	position: absolute;
-	top: 50%;
-	left: 50%;
+	@extend %block-center;
 	@include font(12, $r-m);
 	text-align: center;
 	color: $circle-color;
-	transform: translate(-50%, -50%);
 }

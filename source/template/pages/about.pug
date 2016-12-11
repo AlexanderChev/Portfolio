@@ -2,9 +2,12 @@ extends ../_template
 
 block variables
 	-var title = 'Обо мне'
+	-var footerMod = 'footer--opacity'
+
 block triangle
-	<polygon class = 'header__triangle-left' points='0,0   0,86   500.8,86   500.8,75.5'></polygon>
-	<polygon class = 'header__triangle-right' points='1000,0   1000,86   500,86   500,75.5'></polygon>
+	<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="header__triangle">
+		<polygon class = 'header__triangle-left' points='0,0   0,86   500.8,86   500.8,75.5'></polygon>
+		<polygon class = 'header__triangle-right' points='1000,0   1000,86   500,86   500,75.5'></polygon>
 
 block content
 	section.about
@@ -12,7 +15,7 @@ block content
 			.developer-info
 				h1.title.title--developer-info 
 					span.title__text Обо мне
-					svg(class='title__developer-info')
+					svg(class='title__bg')
 						use(xlink:href='assets/img/sprite.svg#about_header')
 				.developer-info__content
 					.developer-info__img-wrap

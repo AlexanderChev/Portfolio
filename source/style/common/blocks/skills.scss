@@ -1,23 +1,48 @@
 .skills {
 	padding-left: 40px;
 	padding-right: 20px;
+	padding-bottom: 40px;
+
+	@include mobile {
+		padding: 0 10px;
+	}
 
 	&__intro {
 		color: $color-text;
 		line-height: 1.5;
+
+		@include tablet {
+			max-width: 474px;
+			margin: 0 auto;
+		}
 	}
 
 	&__group-title {
 		@include font(28, $r-m);
 		color: $color-text;
+
+		@include tablet {
+			text-align: center;
+		}
 	}
 
 	&__list {
 		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+
+		@include tablet {
+			justify-content: center;
+		}
 	}
 
 	&__item {
 		margin-right: 35px;
+		margin-bottom: 20px;
+
+		@include tablet {
+			margin: 0 20px 25px;
+		}
 	}
 }
 

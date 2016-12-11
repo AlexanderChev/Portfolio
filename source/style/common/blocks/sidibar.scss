@@ -4,29 +4,71 @@
 	width: 30%;
 	text-align: right;
 
-	&__nav {
-		position: static;
+	@include  tablet {
+		position: fixed;
+		top: 0;
+		left: -280px;
+		width: 280px;
+		height: 100%;
+		background-color: $green;
+		z-index: 1000;
+		transition:  0.5s;
+
+		&__toggle {
+			position: absolute;
+			top: 50%;
+			right: -10px;
+			width: 60px;
+			height: 60px;
+			background-color: $green;
+			border-radius: 50%;
+			transform: translateY(-30%);
+			box-shadow: 3px 0 5px 0 rgba(#000, 0.5);
+			z-index: 900;
+		}
+	}
+
+	&__list {
+
+		@include tablet {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translateY(-50%);
+			background-color: $green;
+			z-index: 1100;
+		}
 	}
 
 	&__link {
+		position: relative;
 		display: block;
 	    padding: 17px 20px;
 	    color: $color-text;
 	    transition: 0.3s;
+		z-index: 1100;
 
-	    &:hover {
-	    	color: $green;
-	    }
+		@include desktop {
+			&:hover {
+				color: $green;
+			}
 
-	    &--active {
-	    	border-right: 3px solid $green;
-	    }
+			&--active {
+				border-right: 3px solid $green;
+			}
+		}
+
+		@include tablet {
+			color: rgba(#fff, 0.7);
+
+			&:hover {
+				color: #ffffff;
+			}
+
+			&--active {
+				font-family: $r-b;
+				color: #ffffff;
+			}
+		}
 	}
-}
-
-.sidebar__nav--fixed {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 30%;
 }

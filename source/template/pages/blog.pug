@@ -4,17 +4,18 @@ block blog
 
 block variables
 	-var title = 'Блог'
+	-var footerMod = 'footer--gray'
+	-var socialGray = 'social--gray'
 
 block figcaption
 	h1.title.title--blog
 		span.title__text Блог
-		svg(class='title__blog-bg')
+		svg(class='title__bg')
 			use(xlink:href='assets/img/sprite.svg#blog_header')
-	p.developer__caption.developer__caption--regular Статьи, которые я написал
+	p.developer__caption.developer__caption--regular Статьи, которые я не писал
 
 block content
 	section.blog
-		.container
 			include ../common/_sidebar
 			.blog__articles
 				each item, i in articlesList

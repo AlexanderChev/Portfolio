@@ -1,16 +1,22 @@
 .about {
 	display: flex;
-	@extend %clearfix;
+	flex-wrap: wrap;
 
 	&__developer {
-		float: left;
 		width: 50%;
 		background-color: #efeee9;
 	}
 
 	&__skills {
-		float: right;
 		width: 50%;
 		background-color: #eeebdf;
+	}
+
+	@include tablet {
+		&__developer,
+		&__skills {
+			width: 100%;
+			padding: 35px 0;
+		}
 	}
 }
