@@ -1,8 +1,108 @@
 extends ../_template
 
+block GoogleMaps
+	script(async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCtbRGoprUTdJzPe-nIebN9IaebPhA5hEk&callback=initMap')
+	<script>
+	|	var map;
+	|	function initMap() {
+	|		var Options = {
+	|			center: new google.maps.LatLng(57.624650, 39.862427),
+	|			zoom: 15,
+	|			scrollwheel: false,
+	|			disableDefaultUI: true,
+	|			mapTypeId: google.maps.MapTypeId.ROADMAP,
+	|			styles: [
+	|     {
+	|         "featureType": "landscape.natural",
+	|         "elementType": "geometry.fill",
+	|         "stylers": [
+	|             {
+	|                 "visibility": "on"
+	|             },
+	|             {
+	|                 "color": "#e0efef"
+	|             }
+	|         ]
+	|     },
+	|     {
+	|         "featureType": "poi",
+	|         "elementType": "geometry.fill",
+	|         "stylers": [
+	|             {
+	|                 "visibility": "on"
+	|             },
+	|             {
+	|                 "hue": "#1900ff"
+	|             },
+	|             {
+	|                 "color": "#8EF1DD"
+	|             }
+	|         ]
+	|     },
+	|     {
+	|         "featureType": "landscape.man_made",
+	|         "elementType": "geometry.fill"
+	|     },
+	|     {
+	|         "featureType": "road",
+	|         "elementType": "geometry",
+	|         "stylers": [
+	|             {
+	|                 "lightness": 100
+	|             },
+	|             {
+	|                 "visibility": "simplified"
+	|             }
+	|         ]
+	|     },
+	|     {
+	|         "featureType": "road",
+	|         "elementType": "labels",
+	|         "stylers": [
+	|             {
+	|                 "visibility": "off"
+	|             }
+	|         ]
+	|     },
+	|     {
+	|         "featureType": "water",
+	|         "stylers": [
+	|             {
+	|                 "color": "#73D4C0"
+	|             }
+	|         ]
+	|     },
+	|     {
+	|         "featureType": "transit.line",
+	|         "elementType": "geometry",
+	|         "stylers": [
+	|             {
+	|                 "visibility": "on"
+	|             },
+	|             {
+	|                 "lightness": 700
+	|             }
+	|         ]
+	|     }
+	| ]
+	|		};
+	|		var map = new google.maps.Map(document.getElementById('map'), Options);
+	|		var icon = './assets/img/icons/map_n.svg';
+	|		var location = new google.maps.LatLng(57.625896, 39.879936);
+	|		var mapMarker = new google.maps.Marker({
+	|			position: location,
+	|			map: map,
+	|			title: 'Я тут',
+	|			icon: icon
+	|		});
+	|	}
+	|	google.maps.event.addDomListener(window, 'load', initMap);
+	</script>
+
 block variables
 	-var title = 'Обо мне'
 	-var footerMod = 'footer--opacity'
+	-var href = 'about'
 
 block triangle
 	<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="header__triangle">
@@ -10,7 +110,7 @@ block triangle
 		<polygon class = 'header__triangle-right' points='1000,0   1000,86   500,86   500,75.5'></polygon>
 
 block content
-	section.about
+	section.about#about
 		.about__developer
 			.developer-info
 				h1.title.title--developer-info 

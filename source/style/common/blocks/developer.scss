@@ -4,7 +4,6 @@
 }
 
 .developer__img-wrap {
-	position: relative;
 	width: 140px;
 	height: 140px;
     margin: 0 auto;
@@ -13,6 +12,13 @@
     border-radius: 50%;
 	overflow: hidden;
 }
+
+.developer__img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
 
 .developer__name {
 	@include font(35, $r-m);

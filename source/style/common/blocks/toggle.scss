@@ -1,6 +1,6 @@
 .toggle {
-	position: relative;
-	@include i-b(top);
+	position: absolute;
+	z-index: 1000;
 	width: 40px;
 	height: 35px;
 	cursor: pointer;
@@ -23,7 +23,7 @@
 	height: 5px;
 	background-color: #ffffff;
 	border-radius: 5px;
-	transition: 0.3s;
+	transition: 0.4s;
 }
 
 .toggle__hamburger {
@@ -33,13 +33,11 @@
 
 .toggle--active {
 	position: fixed;
-	z-index: 1000;
-	top: 30px;
-	right: 30px;
-	transition: 0.4s;
+	top: 25px;
+	right: 25px;
 
 	& .toggle__hamburger {
-		opacity: 0;
+		width: 0;
 	}
 
 	&:before {

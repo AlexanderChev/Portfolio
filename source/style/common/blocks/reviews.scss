@@ -1,11 +1,9 @@
 .reviews {
 	position: relative;
-	min-height: 1140px;
+	padding-bottom: 160px;
 	background-color: #ffffff;
 	background-image: url(../img/background/bg-reviews.png);
 	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: cover;
 }
 
 .reviews__list {
@@ -36,7 +34,7 @@
 .reviews__icon-quote {
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 10px;
 	@include svg(35px, 30px, #d4d7d8);
 
 	@include tablet {
@@ -61,6 +59,7 @@
 }
 
 .review__author-wrap {
+	max-width: 70%;
 	@include i-b(middle);
 	color: $green;
 }
@@ -70,8 +69,4 @@
 	margin-bottom: 5px;
 	font-family: $r-m;
 	font-style: normal;
-}
-
-.reviews__feedback {
-	padding-bottom: 160px;
 }

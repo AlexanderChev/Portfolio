@@ -21,19 +21,19 @@ block content
 						a(href='#' class='auth-window__link') Блог
 
 				.auth-window__signin
-					form(method='POST' class='auth-window__form')
+					form(method='POST' class='auth-window__form' id='authorization')
 						.auth-window__signin-content
 							h2.title.title--sub
 								span.title__text Авторизуйтесь
 
 							label.auth-window__label
-								input(type='text' name='login' class='auth-window__input-text' required placeholder='Логин')
+								input(type='text' name='login' class='auth-window__input-text' id='login-field' required placeholder='Логин')
 								.auth-window__icon-wrap
 									svg(class='auth-window__icon')
 										use(xlink:href='assets/img/sprite.svg#login')
 
 							label.auth-window__label
-								input(type='password' name='password' class='auth-window__input-text' required placeholder='Пароль')
+								input(type='password' name='password' class='auth-window__input-text' id='password-field' required placeholder='Пароль')
 								.auth-window__icon-wrap
 									svg(class='auth-window__icon')
 										use(xlink:href='assets/img/sprite.svg#password')
@@ -43,11 +43,11 @@ block content
 
 							.auth-window__question Вы точно не робот?
 
-							input(type='radio' name='captcha-radio' id='captcha-yes' class='auth-window__input-radio' required)
-							label(class='auth-window__label-radio' for='captcha-yes') Да
+							input(type='radio' name='captcha-radio' id='norobot-yes' class='auth-window__input-radio' required)
+							label(class='auth-window__label-radio' for='norobot-yes') Да
 
-							input(type='radio' name='captcha-radio' id='captcha-no' class='auth-window__input-radio' required)
-							label(class='auth-window__label-radio' for='captcha-no') Не уверен
+							input(type='radio' name='captcha-radio' id='norobot-no' class='auth-window__input-radio' required)
+							label(class='auth-window__label-radio' for='norobot-no') Не уверен
 
 
 						.auth-window__nav

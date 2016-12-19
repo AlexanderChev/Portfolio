@@ -1,0 +1,57 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+    background: $green url('../img/background/bg-preloader.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.preloader__progress {
+    position: absolute;
+    @extend %block-center;
+    width: 145px;
+    height: 145px;
+}
+
+.preloader__percents {
+    position: absolute;
+    @extend %block-center;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.preloader__line {
+    transition: 1s;
+
+    &--outer {
+        animation: spin 3s linear infinite;
+    }
+
+    &--center {
+        animation: spin 2s linear infinite;
+    }
+
+    &--inner {
+        animation: spin 1.5s linear infinite;
+    }
+}
+
+@keyframes spin {
+    0% {
+        stroke-dasharray: 40;
+        stroke-dashoffset: 40;
+    }
+
+    50% {
+        stroke-dasharray: 70;
+        stroke-dashoffset: 70;
+    }
+
+    100% {
+        stroke-dasharray: 400;
+        stroke-dashoffset: 400;
+    }
+}

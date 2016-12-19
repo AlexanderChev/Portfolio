@@ -6,6 +6,7 @@ block variables
 	-var title = 'Блог'
 	-var footerMod = 'footer--gray'
 	-var socialGray = 'social--gray'
+	-var href = 'blog'
 
 block figcaption
 	h1.title.title--blog
@@ -15,11 +16,12 @@ block figcaption
 	p.developer__caption.developer__caption--regular Статьи, которые я не писал
 
 block content
-	section.blog
-			include ../common/_sidebar
+	section.blog#blog
+			.blog__sidebar
+				include ../common/_sidebar
 			.blog__articles
 				each item, i in articlesList
-						article(class='article' id=`#article-${i+1}`)
+						article(class='article' id=`article-${i+1}`)
 							h2.article__title= item.title
 							time.article__datetime= item.date
 							.article__content

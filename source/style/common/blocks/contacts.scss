@@ -1,7 +1,6 @@
 .contacts {
 	position: relative;
 	min-height: 830px;
-	background: gray;
 
 	&__window {
 		width: 100%;
@@ -36,5 +35,11 @@
 		vertical-align: middle;
 		margin-right: 10px;
 		@include svg(22px, 22px, $green);
+	}
+
+	&__map {
+		position: static !important;
+		width: 100%;
+		height: 100%;
 	}
 }

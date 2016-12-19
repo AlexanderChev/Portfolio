@@ -5,7 +5,7 @@
 }
 
 @mixin tablet {
-	@media (max-width: 767px) {
+	@media (max-width: 768px) {
 		@content;
 	}
 }
@@ -59,17 +59,17 @@
     font-family: #{$family}, 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
 }
 
-@mixin lines($bg-color) {
+@mixin lines($bg-color, $width: 22px) {
 	&:after,
 	&:before {
     	content: "";
     	position: absolute;
 		top: .5em;
 		right: 0;
-    	width: 22px;
+    	width: $width;
 		height: 5px;
     	background-color: $bg-color;
-    	opacity: .8;
+    	opacity: 0.8;
 	}
 
 	&:before {

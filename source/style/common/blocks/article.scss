@@ -1,12 +1,13 @@
 .article {
-	text-align: left;
     margin-bottom: 70px;
     padding-bottom: 70px;
+    text-align: left;
+    color: $color-text;
     border-bottom: 4px solid #f1f1f2;
-	color: $color-text;
 
     &:last-child {
-    	border: none;
+        margin-bottom: 0;
+        border: none;
     }
 
     &__title {
@@ -19,5 +20,9 @@
     	display: block;
     	margin-bottom: 25px;
     	color: $green;
+    }
+
+    &__content {
+        line-height: 1.5;
     }
 }

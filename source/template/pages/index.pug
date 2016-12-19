@@ -3,9 +3,11 @@ block triangle
 	<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="header__triangle header__triangle--gray">
 		<polygon points="0,0   0,86   500.8,86   500.8,75.5"></polygon>
 		<polygon points="1000,0   1000,86   500,86   500,75.5"></polygon></svg>
+
 block variables
 	-var title = 'Мои работы'
 	-var footerMod = ''
+	-var href = 'slider'
 
 block content
 	section.works
@@ -14,7 +16,7 @@ block content
 			svg(class='title__bg')
 				use(xlink:href='assets/img/sprite.svg#works_header')
 
-		.slider
+		.slider#slider
 			.slider__display
 				ul.slider__works-list
 					-for(var i = 0; i < 4; i++)
@@ -49,6 +51,7 @@ block content
 
 
 	section.reviews
+
 			h2.title
 				span.title__text Что обо мне<br> говорят
 				svg(class='title__bg')
@@ -76,7 +79,7 @@ block content
 					form.feedback__form
 						.feedback__input-wrap
 							input(type='text' name='name' class='feedback__input-field' placeholder='Имя' required)
-							input(type='email' name='email' class='feedback__input-field' placeholder='Email' required)
+							input(type='email' name='email' class='feedback__input-field' placeholder='Email' pattern='/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/' required)
 							textarea(type='text' name='message' class='feedback__textarea-field' placeholder='Ваше сообщение')
 						input(type='submit' value='Отправить' class='feedback__btn feedback__btn--submit')
 						input(type='reset' value='Очистить' class='feedback__btn feedback__btn--reset')

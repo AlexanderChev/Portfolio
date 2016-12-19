@@ -1,11 +1,11 @@
 .header {
 	position: relative;
 	min-height: 650px;
-	background-color: #84adad;
-	background-image: url("../img/background/bg-header-desktop.jpg");
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
+	//background-color: #84adad;
+	//background-image: url("../img/background/bg-header-desktop.jpg");
+	//background-repeat: no-repeat;
+	//background-position: center center;
+	//background-size: cover;
 }
 
 .header__top {
@@ -21,6 +21,9 @@
 
 .header__right {
 	float: right;
+	width: 40px;
+	height: 35px;
+	position: relative;
 }
 
 .header__middle {
@@ -30,6 +33,7 @@
 
 .header__portfolio-bg {
 	@extend %svg-bg;
+	height: 100% !important;
 	fill: #ffffff !important;
 
 	@include  tablet {

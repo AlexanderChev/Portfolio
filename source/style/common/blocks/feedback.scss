@@ -4,7 +4,7 @@
 	margin: 0 auto;
 	padding-top: 30px;
 	border-radius: 5px;
-	background-color: rgba(#fff, 0.5);
+	background-color: #ffffff;
 	overflow: hidden;
 	z-index: 1;
 
@@ -20,12 +20,8 @@
     bottom: 0;
     left: 0;
     z-index: 0;
-    filter: blur(5px);
-	background-color: #fffff;
-	background-image: url(../img/background/bg-reviews.png);
-	background-repeat: no-repeat;
-	background-position: center 74%;
-	background-size: 1800px;
+    filter: blur(10px);
+	background: url(../img/background/bg-reviews.png) no-repeat center;
 }
 
 .feedback__input-wrap {
@@ -71,5 +67,9 @@
 
 .feedback__btn--reset {
 	border-left: 2px solid #82cfc9;
+}
+
+.error {
+	background: #ff3536;
 }
 

@@ -1,8 +1,12 @@
 .sidebar {
 	position: relative;
-	float: left;
-	width: 30%;
 	text-align: right;
+	padding-bottom: 30px;
+
+	&--fixed {
+		left: 0;
+		width: 30%;
+	}
 
 	@include  tablet {
 		position: fixed;
@@ -13,6 +17,10 @@
 		background-color: $green;
 		z-index: 1000;
 		transition:  0.5s;
+
+		&--active {
+			left: 0;
+		}
 
 		&__toggle {
 			position: absolute;
@@ -45,7 +53,7 @@
 		display: block;
 	    padding: 17px 20px;
 	    color: $color-text;
-	    transition: 0.3s;
+	    transition: color 0.3s, font-family 0.3s;
 		z-index: 1100;
 
 		@include desktop {
@@ -54,6 +62,8 @@
 			}
 
 			&--active {
+				font-family: $r-b;
+				color: $green;
 				border-right: 3px solid $green;
 			}
 		}
