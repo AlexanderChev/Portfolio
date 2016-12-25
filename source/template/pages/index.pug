@@ -1,89 +1,57 @@
-extends ../_template
-block triangle
-	<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="header__triangle header__triangle--gray">
-		<polygon points="0,0   0,86   500.8,86   500.8,75.5"></polygon>
-		<polygon points="1000,0   1000,86   500,86   500,75.5"></polygon></svg>
+extends ../_empty
 
 block variables
-	-var title = 'Мои работы'
-	-var footerMod = ''
-	-var href = 'slider'
+	-var title = 'Авторизация'
 
 block content
-	section.works
-		h1.title.title--works
-			span.title__text Мои работы
-			svg(class='title__bg')
-				use(xlink:href='assets/img/sprite.svg#works_header')
+		.auth#page-auth
+			a(href='#' class='auth__btn') Авторизоваться
+			.auth-window
+				.auth-window__hello
+					.auth-window__hello-content
+						.auth-window__developer
+							.developer.developer--auth
+								include ../common/_developer
+						.auth-window__social
+							ul.social.social--auth
+								include ../common/_social
+					.auth-window__nav
+						a(href='works.html' class='auth-window__link') Мои работы
+						a(href='about.html' class='auth-window__link') Обо мне
+						a(href='blog.html' class='auth-window__link') Блог
 
-		.slider#slider
-			.slider__display
-				ul.slider__works-list
-					-for(var i = 0; i < 4; i++)
-						li(class='slider__works-item' + ((i == 0) ? ' slider__works-item--acitve' : ''))
-							img(src=`assets/img/work/work-${i+1}.png` class='slider__works-img')
+				.auth-window__signin
+					form(method='POST' class='auth-window__form' id='authorization')
+						.auth-window__signin-content
+							h2.title.title--sub
+								span.title__text Авторизуйтесь
 
-			.slider__content
-				ul.slider__content-list
-					-var list = ['Сайт школы онлайн Образования', 'Работа2', 'Работа3']
-					each item, i  in list
-						li(class='slider__content-item' + ((i == 0)? ' slider__content-item--acitve': ''))
-							h3.title.title--sub.title--slider
-								span.title__text= item
-							p.slider__skills Html, css, js
-							a(href='#' class='slider__btn') Посмотреть сайт
-								svg(class='slider__btn-icon')
-									use(xlink:href='assets/img/sprite.svg#link')
+							label.auth-window__label
+								input(type='text' name='login' class='auth-window__input-text' id='login-field' required placeholder='Логин')
+								.auth-window__icon-wrap
+									svg(class='auth-window__icon')
+										use(xlink:href='assets/img/sprite.svg#login')
 
-			.slider__controls
-				.slider__control.slider__control-prev
-					svg(class='slider__icon-down')
-						use(xlink:href='assets/img/sprite.svg#portf_arrow_down')
-					.slider__thumbnails
-						.slider__thumbnail-next
-						.slider__thumbnail-current
-				.slider__control.slider__control-next
-					svg(class='slider__icon-up')
-						use(xlink:href='assets/img/sprite.svg#portf_arrow_up')
-					.slider__thumbnails
-						.slider__thumbnail-next
-						.slider__thumbnail-current
+							label.auth-window__label
+								input(type='password' name='password' class='auth-window__input-text' id='password-field' required placeholder='Пароль')
+								.auth-window__icon-wrap
+									svg(class='auth-window__icon')
+										use(xlink:href='assets/img/sprite.svg#password')
 
+							input(type='checkbox' name='captcha-checkbox' id='captcha-human' class='auth-window__input-checkbox' required)
+							label(class='auth-window__label-checkbox' for='captcha-human') Я человек
 
-	section.reviews
+							.auth-window__question Вы точно не робот?
 
-			h2.title
-				span.title__text Что обо мне<br> говорят
-				svg(class='title__bg')
-					use(xlink:href='assets/img/sprite.svg#about_header')
+							input(type='radio' name='captcha-radio' id='norobot-yes' class='auth-window__input-radio' required)
+							label(class='auth-window__label-radio' for='norobot-yes') Да
 
-			ul.reviews__list
-				-for(var i = 0; i < 2; i++)
-					li.reviews__item
-						svg(class='reviews__icon-quote')
-							use(xlink:href='assets/img/sprite.svg#quote')
-						article.review
-							blockquote.review__text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-							.review__img-wrap
-								img(src=`assets/img/work/reviewer-${i+1}.png` alt='')
-							.review__author-wrap
-								cite.review__author-name Ковальчук Дмитрий
-								span.review__author-caption основатель Loftschool
+							input(type='radio' name='captcha-radio' id='norobot-no' class='auth-window__input-radio' required)
+							label(class='auth-window__label-radio' for='norobot-no') Не уверен
 
 
-			section.reviews__feedback
-				.feedback
-					.feedback__blur
-					h3.title.title--sub
-						span.title__text Связаться со мной
-					form.feedback__form
-						.feedback__input-wrap
-							input(type='text' name='name' class='feedback__input-field' placeholder='Имя' required)
-							input(type='email' name='email' class='feedback__input-field' placeholder='Email' pattern='/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/' required)
-							textarea(type='text' name='message' class='feedback__textarea-field' placeholder='Ваше сообщение')
-						input(type='submit' value='Отправить' class='feedback__btn feedback__btn--submit')
-						input(type='reset' value='Очистить' class='feedback__btn feedback__btn--reset')
+						.auth-window__nav
+							a(href='#' id='backflip' class='auth-window__link') На главную
+							input(type='submit' value='Войти' class='auth-window__link auth-window__submit')
 
-			a.arrow-link.arrow-link--up
-				svg(class='arrow-link__icon-up')
-					use(xlink:href='assets/img/sprite.svg#portf_arrow_up')
+			footer.auth__footer © Владимир Астахов | создано с любовью в LoftSchool | 2016

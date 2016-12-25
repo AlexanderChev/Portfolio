@@ -3,3 +3,9 @@ mixin nav(className, items)
 		each href, title in items
 			li(class=`${className}__item`)
 				a(class=`${className}__link` href=`${href}.html`)= title
+
+mixin imgList(className, src, count, active)
+	ul(class=`${className}-list`)
+		-for(var i = 1; i <= count; i++)
+			li(class=`${className}-item` + ((i == active) ? ` ${className}-item--active`: ''))
+				img(src=`${src}-${i}.png` class=`${className}-img`)

@@ -33,8 +33,24 @@ $.gulp.task('default', $.gulp.series(
     'css:foundation',
     'sprite:svg'
   ),
+
   $.gulp.parallel(
     'watch',
     'serve'
+  )
+));
+
+$.gulp.task('build', $.gulp.series(
+  'clean',
+  $.gulp.parallel(
+    'sass',
+    'copy:pug',
+    'js:foundation',
+    'js:process',
+    'sprite:png',
+    'copy:image',
+    'copy:font',
+    'css:foundation',
+    'sprite:svg'
   )
 ));

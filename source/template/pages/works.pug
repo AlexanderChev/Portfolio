@@ -1,0 +1,82 @@
+extends ../_template
+block triangle
+	<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="header__triangle header__triangle--gray">
+		<polygon points="0,0   0,86   500.8,86   500.8,75.5"></polygon>
+		<polygon points="1000,0   1000,86   500,86   500,75.5"></polygon></svg>
+
+block variables
+	-var title = 'Мои работы'
+	-var footerMod = ''
+	-var href = 'slider'
+
+block content
+	section.works#page-works
+		h1.title.title--works
+			span.title__text Мои работы
+			svg(class='title__bg')
+				use(xlink:href='assets/img/sprite.svg#works_header')
+
+		.slider#slider
+			.slider__display
+				+imgList('slider__works', 'assets/img/work/work', 4, 1)
+
+			.slider__content
+				ul.slider__content-list
+					-var list = ['Сайт школы онлайн Образования', 'Работа2', 'Работа3', 'Работа4']
+					each item, i  in list
+						li(class='slider__content-item' + ((i == 0)? ' slider__content-item--active': ''))
+							h3.title.title--sub.title--slider
+								span.title__text= item
+							p.slider__skills Html, css, js
+							a(href='#' class='slider__btn') Посмотреть сайт
+								svg(class='slider__btn-icon')
+									use(xlink:href='assets/img/sprite.svg#link')
+
+			.slider__controls
+				a(href='#' class='slider__control slider__control-prev')
+					svg(class='slider__icon-down')
+						use(xlink:href='assets/img/sprite.svg#portf_arrow_down')
+					+imgList('slider__thumbnails', 'assets/img/work/work', 4, 1)
+				a(href='#' class='slider__control slider__control-next')
+					svg(class='slider__icon-up')
+						use(xlink:href='assets/img/sprite.svg#portf_arrow_up')
+					+imgList('slider__thumbnails', 'assets/img/work/work', 4, 3)
+
+
+	section.reviews
+
+			h2.title
+				span.title__text Что обо мне<br> говорят
+				svg(class='title__bg')
+					use(xlink:href='assets/img/sprite.svg#about_header')
+
+			ul.reviews__list
+				-for(var i = 0; i < 2; i++)
+					li.reviews__item
+						svg(class='reviews__icon-quote')
+							use(xlink:href='assets/img/sprite.svg#quote')
+						article.review
+							blockquote.review__text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+							.review__img-wrap
+								img(src=`assets/img/work/reviewer-${i+1}.png` alt='')
+							.review__author-wrap
+								cite.review__author-name Ковальчук Дмитрий
+								span.review__author-caption основатель Loftschool
+
+
+			section.reviews__feedback
+				.feedback
+					.feedback__blur
+					h3.title.title--sub
+						span.title__text Связаться со мной
+					form(class='feedback__form' method='POST')
+						.feedback__input-wrap
+							input(type='text' name='name' class='feedback__input-field' placeholder='Имя')
+							input(type='email' name='email' class='feedback__input-field' placeholder='Email')
+							textarea(name='message' class='feedback__textarea-field' placeholder='Ваше сообщение')
+						input(type='submit' value='Отправить' class='feedback__btn feedback__btn--submit')
+						input(type='reset' value='Очистить' class='feedback__btn feedback__btn--reset')
+
+			a.arrow-link.arrow-link--up
+				svg(class='arrow-link__icon-up')
+					use(xlink:href='assets/img/sprite.svg#portf_arrow_up')

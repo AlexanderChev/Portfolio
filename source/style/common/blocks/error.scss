@@ -1,0 +1,15 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.error__status {
+    font-size: 10rem;
+
+    @include tablet {
+        font-size: 2rem;
+    }
+}

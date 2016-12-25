@@ -1,18 +1,24 @@
 .header {
 	position: relative;
 	min-height: 650px;
-	//background-color: #84adad;
-	//background-image: url("../img/background/bg-header-desktop.jpg");
-	//background-repeat: no-repeat;
-	//background-position: center center;
-	//background-size: cover;
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		background: #84adad url("../img/background/bg-header.jpg") center center no-repeat;
+		background-size: cover;
+	}
 }
 
 .header__top {
 	@extend %clearfix;
 	@include container;
 	margin-bottom: 70px;
-	padding: 25px 0px;
+	padding: 25px 0;
 }
 
 .header__left {

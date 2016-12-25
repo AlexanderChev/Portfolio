@@ -1,0 +1,26 @@
+{
+  "db": {
+    "host": "localhost",
+    "port": "27017",
+    "name": "portfolio",
+    "user": "",
+    "password": ""
+  },
+  "http": {
+    "port": 8000,
+    "host": "localhost",
+    "publicRoot": "./build/"
+  },
+  "mail": {
+    "subject": "Сообщение с сайта-портфолио",
+    "smtp": {
+      "host": "",
+      "port": "465",
+      "secure": "true",
+      "auth": {
+        "user": "alexchev92@gmail.com",
+        "pass": "..."
+      }
+    }
+  }
+}
