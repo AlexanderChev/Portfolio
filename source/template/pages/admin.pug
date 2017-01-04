@@ -1,0 +1,77 @@
+block variables
+include ../common/_mixins
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        title #{title}
+        meta(content="" name="author")
+        meta(content="" name="description")
+        meta(content="" name="keywords")
+        meta(content="width=device-width, initial-scale=1" name="viewport")
+        meta(content="ie=edge" http-equiv="x-ua-compatible")
+
+        //- favicon block start
+        link(rel='shortcut icon' href='/assets/img/favicon/fav_mount.png')
+        //- favicon block end
+
+        link(rel='stylesheet' href='/assets/css/foundation.css')
+        link(rel='stylesheet' href='/assets/css/app.css')
+        script(src='/assets/js/foundation.js' defer)
+        script(src='/assets/js/app.js' defer)
+
+        <!--[if lt IE 9]>
+        script(src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js")
+        <![endif]-->
+
+    body.body
+        .admin#page-admin
+            header.admin__header
+                h1.admin__title Панель администрирования
+                a(href='index' class='admin__link-back') Вернуться на сайт
+            ul.admin__tab-controls
+                each href, title in welcomList
+                    li(class='admin__control-item' + ((href === 'works') ? ' active' : ''))
+                        a(class='admin__control-link' href=`#${href}`)= title
+            ul.admin__tabs-list
+                li.admin__tab.active
+                    h2.admin__tab-title Страница «Мои работы»
+                    form.admin__form-works(method='POST')
+                        h3.admin__form-title Добавить работу
+                        input.admin__input-works(type='text' name='workName' placeholder='Название проекта')
+                        br
+                        input.admin__input-works(type='text' name='workTech' placeholder='Технологии')
+                        br
+                        input.admin__input-works(type='text' name='workLink' placeholder='Ссылка')
+                        br
+                        label.admin__label-file(for='admin__field-file') Загрузить картинку
+                            input.admin__input-works(type='file' name='workFile' id='admin__field-file')
+                        br
+                        input.admin__btn(type='submit' value='Добавить')
+                li.admin__tab
+                    h2.admin__tab-title Страница «Обо мне»
+                    form.admin__form-skills(method='POST')
+                        each skillsGroup, skillsTitle in skills
+                            .admin__skills-group
+                                h3.admin__skills-title= skillsTitle
+                                each value, skill in skillsGroup
+                                    label(for=`admin__field-${skill}` class='admin__skills-label')
+                                        span=skill
+                                        input(type='text' id=`admin__field-${skill}` name=`${skill}` class='admin__skills-input' value=`${value}`)
+                                        | %
+                                    br
+                        input.admin__btn(type='submit' value='Сохранить')
+                li.admin__tab
+                    h2.admin__tab-title Страница «Блог»
+                        form.admin__form-blog(method='POST')
+                            h3.admin__form-title Добавить запись
+                            input.admin__input-blog(type='text' name='postName' placeholder='Название')
+                            br
+                            input.admin__input-blog(type='text' name='postDate' placeholder='Дата')
+                            br
+                            textarea.admin__input-blog(name='postBody' cols='30', rows='10' placeholder='Содержание')
+                            br
+                            input.admin__btn(type='submit' value='Добавить')
+
+
+

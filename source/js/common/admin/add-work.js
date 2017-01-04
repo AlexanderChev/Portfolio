@@ -1,28 +1,31 @@
 'use strict';
-var auth = (function () {
-    var _authorization = function (evt) {
+
+var addWork = (function () {
+    var _submitForm = function (evt) {
         evt.preventDefault();
-        var form = $(this).closest('#authorization'),
-            url = '/auth',
-            data = form.serialize();
+        var form = $(this),
+            url = '/admin/work',
+            data = new FormData(form[0]);
 
         if (validate.validateForm(form)) {
+            console.log(data);
             _ajaxForm(data, url);
         }
     };
 
-    var _ajaxForm = function (data, url){
-            $.ajax({
+    var _ajaxForm = function (data, url) {
+        $.ajax({
             type: "POST",
             url: url,
-            dataType: 'json',
+            processData: false,
+            contentType: false,
             cache: false,
             data: data
         }).done(function(response){
             if(response.error) {
                 $.fancybox('<h1>' + response.error + '</h1>');
             }else  {
-                window.location.href = '/admin';
+                $.fancybox('<h1>' + response.success + '</h1>');
             }
         }).fail(function(){
             $.fancybox('<h1>Ошибка соединения с сервером</h1>');
@@ -31,9 +34,9 @@ var auth = (function () {
 
     return {
         init: function () {
-            $('.auth-window__submit').on('click', _authorization);
+            $('.admin__form-works').on('submit', _submitForm);
         }
     }
 })();
 
-auth.init();
+addWork.init();

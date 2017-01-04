@@ -7,19 +7,22 @@
     "password": ""
   },
   "http": {
-    "port": 8000,
+    "port": 8080,
     "host": "localhost",
-    "publicRoot": "./build/"
+    "publicRoot": "../build/",
+    "templates": "../build/template/pages",
+    "upload": "upload",
+    "content": "../content.json"
   },
   "mail": {
     "subject": "Сообщение с сайта-портфолио",
     "smtp": {
-      "host": "",
+      "host": "smtp.gmail.com",
       "port": "465",
       "secure": "true",
       "auth": {
         "user": "alexchev92@gmail.com",
-        "pass": "..."
+        "pass": "....................."
       }
     }
   }

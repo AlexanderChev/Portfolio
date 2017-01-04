@@ -1,6 +1,5 @@
 'use strict';
-(function() {
-
+var slider = (function() {
     var downBtn = $(".slider__control-prev");
     var upBtn = $(".slider__control-next");
     var slide = $(".slider__display");
@@ -14,111 +13,115 @@
         itemsSlide = slide.find('.slider__works-item'),
         itemsDescr = description.find('.slider__content-item');
 
-    function toggleSlide() {
+    function toggleSlide(activeSlide, reqSlide, activeDesc, reqDesc) {
         //Скрытие активного слайда
-        activeItemSlide.fadeOut(700);
+        activeSlide.fadeOut(700);
         // //Появление требуемого слайда
-        reqItemSlide.fadeIn(700);
+        reqSlide.fadeIn(700);
         //Удаление класса у бывшего активного слайда
-        activeItemSlide.removeClass('slider__works-item--active');
+        activeSlide.removeClass('slider__works-item--active');
         //Добавление активного класса требуемому слайду
-        reqItemSlide.addClass('slider__works-item--active');
+        reqSlide.addClass('slider__works-item--active');
         //Добавление требуемому описанию слайда активного класса
-        reqItemDescr.addClass('slider__content-item--active');
+        reqDesc.addClass('slider__content-item--active');
         //Удаление класса у активного описания слайда
-        activeItemDescr.removeClass('slider__content-item--active');
+        activeDesc.removeClass('slider__content-item--active');
     }
 
-    downBtn.on('click', function(evt) {
-        evt.preventDefault();
+    return {
+        init: function () {
+            downBtn.on('click', function(evt) {
+                evt.preventDefault();
 
-        counterDown--;
-        counterUp--;
-        counterSlide--;
+                counterDown--;
+                counterUp--;
+                counterSlide--;
 
-        var activeItemDown = downBtn.find('.slider__thumbnails-item--active'),
-            activeItemUp = upBtn.find('.slider__thumbnails-item--active'),
-            activeItemSlide = slide.find('.slider__works-item--active'),
-            activeItemDescr = description.find('.slider__content-item--active');
+                var activeItemDown = downBtn.find('.slider__thumbnails-item--active'),
+                    activeItemUp = upBtn.find('.slider__thumbnails-item--active'),
+                    activeItemSlide = slide.find('.slider__works-item--active'),
+                    activeItemDescr = description.find('.slider__content-item--active');
 
-        if (counterDown < 0) counterDown = itemsDown.length-1;
-        if (counterUp < 0) counterUp = itemsUp.length-1;
-        if (counterSlide < 0) counterSlide = itemsUp.length-1;
+                if (counterDown < 0) counterDown = itemsDown.length-1;
+                if (counterUp < 0) counterUp = itemsUp.length-1;
+                if (counterSlide < 0) counterSlide = itemsUp.length-1;
 
-        var reqItemDown = itemsDown.eq(counterDown),
-            reqItemUp = itemsUp.eq(counterUp),
-            reqItemSlide = itemsSlide.eq(counterSlide),
-            reqItemDescr = itemsDescr.eq(counterSlide);
+                var reqItemDown = itemsDown.eq(counterDown),
+                    reqItemUp = itemsUp.eq(counterUp),
+                    reqItemSlide = itemsSlide.eq(counterSlide),
+                    reqItemDescr = itemsDescr.eq(counterSlide);
 
-        activeItemDown.animate({
-            'top': '100%'
-        }, 300);
-        activeItemUp.animate({
-            'top' : '-100%'
-        }, 300);
+                activeItemDown.animate({
+                    'top': '100%'
+                }, 200);
+                activeItemUp.animate({
+                    'top' : '-100%'
+                }, 200);
 
-        toggleSlide();
+                toggleSlide(activeItemSlide, reqItemSlide, activeItemDescr, reqItemDescr);
 
-        reqItemDown.animate({
-            'top' : '0'
-        }, 300, function() {
-            activeItemDown.removeClass('slider__thumbnails-item--active').css('top', '-100%');
-            reqItemDown.addClass('slider__thumbnails-item--active');
-        });
-        reqItemUp.animate({
-            'top' : '0'
-        }, 300, function() {
-            activeItemUp.removeClass('slider__thumbnails-item--active').css('top', '100%');
-            reqItemUp.addClass('slider__thumbnails-item--active');
-        });
-    });
+                reqItemDown.animate({
+                    'top' : '0'
+                }, 200, function() {
+                    activeItemDown.removeClass('slider__thumbnails-item--active').css('top', '-100%');
+                    reqItemDown.addClass('slider__thumbnails-item--active');
+                });
+                reqItemUp.animate({
+                    'top' : '0'
+                }, 200, function() {
+                    activeItemUp.removeClass('slider__thumbnails-item--active').css('top', '100%');
+                    reqItemUp.addClass('slider__thumbnails-item--active');
+                });
+            });
 
-    upBtn.on('click', function(evt) {
-        evt.preventDefault();
+            upBtn.on('click', function(evt) {
+                evt.preventDefault();
 
-        counterDown++;
-        counterUp++;
-        counterSlide++;
+                counterDown++;
+                counterUp++;
+                counterSlide++;
 
-        toggleSlide();
+                var activeItemDown = downBtn.find('.slider__thumbnails-item--active'),
+                    activeItemUp = upBtn.find('.slider__thumbnails-item--active'),
+                    activeItemSlide = slide.find('.slider__works-item--active'),
+                    activeItemDescr = description.find('.slider__content-item--active');
 
-        var activeItemDown = downBtn.find('.slider__thumbnails-item--active'),
-            activeItemUp = upBtn.find('.slider__thumbnails-item--active'),
-            activeItemSlide = slide.find('.slider__works-item--active'),
-            activeItemDescr = description.find('.slider__content-item--active');
+                if (counterUp >= itemsUp.length) {
+                    counterUp = 0;
+                }
+                if (counterDown >= itemsDown.length) counterDown = 0;
+                if (counterSlide >= itemsDown.length) counterSlide = 0;
 
-        if (counterUp >= itemsUp.length) {
-            counterUp = 0;
+                var reqItemDown = itemsDown.eq(counterDown),
+                    reqItemUp = itemsUp.eq(counterUp),
+                    reqItemSlide = itemsSlide.eq(counterSlide),
+                    reqItemDescr = itemsDescr.eq(counterSlide);
+
+                activeItemDown.animate({
+                    'top': '100%'
+                }, 200);
+                activeItemUp.animate({
+                    'top' : '-100%'
+                }, 200);
+
+                toggleSlide(activeItemSlide, reqItemSlide, activeItemDescr, reqItemDescr);
+
+                reqItemDown.animate({
+                    'top' : '0'
+                }, 200, function() {
+                    activeItemDown.removeClass('slider__thumbnails-item--active').css('top', '-100%');
+                    reqItemDown.addClass('slider__thumbnails-item--active');
+                });
+
+                reqItemUp.animate({
+                    'top' : '0'
+                }, 200, function() {
+                    activeItemUp.removeClass('slider__thumbnails-item--active').css('top', '100%');
+                    reqItemUp.addClass('slider__thumbnails-item--active');
+                });
+            });
         }
-        if (counterDown >= itemsDown.length) counterDown = 0;
-        if (counterSlide >= itemsDown.length) counterSlide = 0;
-
-        var reqItemDown = itemsDown.eq(counterDown),
-            reqItemUp = itemsUp.eq(counterUp),
-            reqItemSlide = itemsSlide.eq(counterSlide),
-            reqItemDescr = itemsDescr.eq(counterSlide);
-
-        activeItemDown.animate({
-            'top': '100%'
-        }, 300);
-        activeItemUp.animate({
-            'top' : '-100%'
-        }, 300);
-
-        toggleSlide();
-
-        reqItemDown.animate({
-            'top' : '0'
-        }, 300, function() {
-            activeItemDown.removeClass('slider__thumbnails-item--active').css('top', '-100%');
-            reqItemDown.addClass('slider__thumbnails-item--active');
-        });
-
-        reqItemUp.animate({
-            'top' : '0'
-        }, 300, function() {
-            activeItemUp.removeClass('slider__thumbnails-item--active').css('top', '100%');
-            reqItemUp.addClass('slider__thumbnails-item--active');
-        });
-    });
+    }
 }());
+
+slider.init();

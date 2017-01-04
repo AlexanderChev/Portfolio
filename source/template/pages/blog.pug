@@ -6,7 +6,7 @@ block variables
 	-var title = 'Блог'
 	-var footerMod = 'footer--gray'
 	-var socialGray = 'social--gray'
-	-var href = 'blog'
+	-var href = 'page-blog'
 
 block figcaption
 	h1.title.title--blog
@@ -20,11 +20,10 @@ block content
 			.blog__sidebar
 				include ../common/_sidebar
 			.blog__articles
-				each item, i in articlesList
+				each item, i in (items)? items : articlesList
 						article(class='article' id=`article-${i+1}`)
 							h2.article__title= item.title
 							time.article__datetime= item.date
 							.article__content
-								each par in item.text
-									p= par
+								p= item.body
 

@@ -76,6 +76,7 @@
 	order: 1;
 	width: 50%;
 	height: 75%;
+	overflow: hidden;
 
 	@include tablet {
 		flex-grow: 2;

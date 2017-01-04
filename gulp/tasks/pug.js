@@ -4,7 +4,7 @@ module.exports = function() {
   $.gulp.task('pug', function() {
     return $.gulp.src('./source/template/pages/*.pug')
       .pipe($.gp.pug({
-        locals: JSON.parse($.fs.readFileSync('./data.json', 'utf8')),
+        locals: JSON.parse($.fs.readFileSync('./content.json', 'utf8')),
         
         pretty: '\t'
       }))

@@ -1,6 +1,6 @@
 aside.sidebar
 		a.sidebar__toggle
 		ul.sidebar__list
-			each title, i in sidebarNav
+			each item, i in (items)? items : articlesList
 				li(class='sidebar__item')
-					a(class='sidebar__link' + ((i == 0)? ' sidebar__link--active': '') href=`#article-${i+1}`)= title
+					a(class='sidebar__link' + ((i == 0)? ' sidebar__link--active': '') href=`#article-${i+1}`)= item.title
